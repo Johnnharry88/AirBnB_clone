@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-#!/usr/bin/python3
+
+
 """
-Module: base.py
+Module defining base class
 """
 import models
 import uuid
@@ -10,13 +11,13 @@ from datetime import datetime
 
 class BaseModel():
     """
-    Base class which defines all common
-    attributes/methods for other classes
+    Base class that defines common
+    attributes/methods for other class inheritance
     """
 
     def __init__(self, *args, **kwargs):
         """
-        instatiates an object with it's
+        instatiates object using it's
         attributes
         """
         if len(kwargs) > 0:
@@ -36,8 +37,8 @@ class BaseModel():
 
     def __str__(self):
         """
-        Returns the string representation
-        of the instance
+        Returns string representation
+        of instance
         """
         return "[{}] ({}) {}".format(
             type(self).__name__, self.id, self.__dict__)
@@ -45,7 +46,7 @@ class BaseModel():
     def save(self):
         """
         updates the public instance attribute
-        updated_at with the current datetime
+        using the current datetime
         """
         self.updated_at = datetime.now()
         models.storage.save()
