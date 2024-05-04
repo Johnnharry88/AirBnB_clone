@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+from models.base_model import BaseModel
+
+my_test = BaseModel()
+my_test.name = 'Agatha'
+my_test.age = 39
+print(my_test)

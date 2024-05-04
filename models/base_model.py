@@ -29,6 +29,8 @@ class BaseModel():
                 setattr(self, key, value)
             return
 
+        self.name = args
+        self.my_number = args
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -56,9 +58,9 @@ class BaseModel():
         returns a dictionary containing all keys/values
         of __dict__ of the instance
         """
-        obj_dict = {**self.__dict__}
-        obj_dict['__class__'] = type(self).__name__
-        obj_dict['created_at'] = dict['created_at'].isoformat()
-        obj_dict['updated_at'] = dict['updated_at'].isoformat()
+        obj_dict = dict(self.__dict__)
+        obj_dict['__class__'] = str(type(self).__name__)
+        obj_dict['created_at'] = self.created_at.isoformat()
+        obj_dict['updated_at'] = self.updated_at.isoformat()
 
         return obj_dict
