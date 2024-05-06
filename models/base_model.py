@@ -29,8 +29,6 @@ class BaseModel():
                 setattr(self, key, value)
             return
 
-        self.name = args
-        self.my_number = args
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
